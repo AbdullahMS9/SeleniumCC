@@ -21,7 +21,7 @@ public class NewSeleniumTest {
 
     @AfterClass
     public void tearDown(){
-        //driver.quit();
+        driver.quit();
     }
 
     @Test
