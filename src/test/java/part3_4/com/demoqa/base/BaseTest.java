@@ -6,6 +6,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.io.FileHandler;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
@@ -27,7 +28,18 @@ public class BaseTest {
 
     @BeforeClass
     public void setUp(){
-        driver = new ChromeDriver();
+        /*
+        FOR SPEED PURPOSES:
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--headless"); // Enables headless mode
+            options.addArguments("--disable-gpu"); // Improves speed in headless mode
+            options.addArguments("--disable-extensions");
+            options.addArguments("--disable-popup-blocking");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+         */
+
+        driver = new ChromeDriver(/*options*/);
         driver.manage().window().maximize();
         // Implicit wait setup:
         //   driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
