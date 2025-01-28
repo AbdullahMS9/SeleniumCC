@@ -29,7 +29,11 @@ public class BaseTest {
     public void setUp(){
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        // driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        // Implicit wait setup:
+        //   driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        // Page Load / Script Timeout setup:
+        //   driver.manage().timeouts().( pageLoadTimeout(duration) or scriptTimeout(duration) );
+
     }
 
     @BeforeMethod
