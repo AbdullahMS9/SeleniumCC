@@ -8,6 +8,6 @@ public class CaptureFailedSSTest extends BaseTest {
     @Test
     public void testClickingSubmitWithoutJSExecutor(){
         var practiceFormPage = homePage.goToForms().clickPracticeForm();
-        practiceFormPage.clickSubmitButton();
+        practiceFormPage.clickSubmitButton(); // Test Fail -> Screenshot
     }
 }

@@ -1,7 +1,7 @@
-package part3_4.com.demoqa.base;
+package personal.com.adabny.base;
 
-import com.demoqa.pages.HomePage;
 import com.base.BasePage;
+import com.adabny.pages.HomePage;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -16,7 +16,6 @@ import org.testng.annotations.BeforeMethod;
 
 import java.io.File;
 import java.io.IOException;
-import java.time.Duration;
 
 import static util.Utility.setUtilityDriver;
 
@@ -24,33 +23,17 @@ public class BaseTest {
     private WebDriver driver;
     protected BasePage basePage;
     protected HomePage homePage;
-    private String DEMOQA_URL = "https://demoqa.com";
+    private String ADABNY_URL = "https://www.adabny.com";
 
     @BeforeClass
     public void setUp(){
-
-        // FOR SPEED PURPOSES:
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--headless"); // Enables headless mode
-            options.addArguments("--disable-gpu"); // Improves speed in headless mode
-            options.addArguments("--disable-extensions");
-            options.addArguments("--disable-popup-blocking");
-            options.addArguments("--no-sandbox");
-            options.addArguments("--disable-dev-shm-usage");
-
-
-        driver = new ChromeDriver(options);
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
-        // Implicit wait setup:
-        //   driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        // Page Load / Script Timeout setup:
-        //   driver.manage().timeouts().( pageLoadTimeout(duration) or scriptTimeout(duration) );
-
     }
 
     @BeforeMethod
     public void loadApplication(){
-        driver.get(DEMOQA_URL);
+        driver.get(ADABNY_URL);
         basePage = new BasePage();
         basePage.setDriver(driver);
         setUtilityDriver();
