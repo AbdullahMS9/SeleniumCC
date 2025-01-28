@@ -28,4 +28,13 @@ public class AlertsTest extends BaseTest {
                 "\n You Did Not Select Cancel \n");
     }
 
+    public void testPromptAlert(){
+        String alertText = "Selenium automation with Java";
+        var alertsPage = homePage.goToAlertsFramesWindowsCard().clickAlert();
+        alertsPage.clickPromptAlertButton();
+        setAlertText(alertText);
+        acceptAlert();
+        Assert.assertTrue(alertsPage.getPromptAlertResult().contains(alertText), "Prompt alert text does not match");
+    }
+
 }
