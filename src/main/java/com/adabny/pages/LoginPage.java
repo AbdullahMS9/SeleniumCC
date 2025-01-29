@@ -13,6 +13,7 @@ public class LoginPage extends BasePage {
     private By passwordField = By.id("password");
     private By loginButton = By.xpath("//main//button[@type='submit']");
     private By errorMessage = By.xpath("//div[text()='Invalid email or password']");
+    private By usernameCard = By.xpath("//a[@id='username']");
 
     public void setEmail(String email){
         set(emailField, email);
