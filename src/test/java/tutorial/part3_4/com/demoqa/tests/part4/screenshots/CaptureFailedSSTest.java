@@ -5,9 +5,9 @@ import tutorial.part3_4.com.demoqa.base.BaseTest;
 
 public class CaptureFailedSSTest extends BaseTest {
 
-    @Test
+    /*@Test
     public void testClickingSubmitWithoutJSExecutor(){
         var practiceFormPage = homePage.goToForms().clickPracticeForm();
         practiceFormPage.clickSubmitButton(); // Test Fail -> Screenshot
-    }
+    }*/
 }

@@ -4,6 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
+import static util.JavaScriptUtilities.scrollToElementJS;
+
 public class BasePage {
 
     public static WebDriver driver;
@@ -16,12 +20,17 @@ public class BasePage {
         return driver.findElement(locator);
     }
 
+    protected List<WebElement> findAll(By locator){
+        return driver.findElements(locator);
+    }
+
     protected void set(By locator, String text){
         find(locator).clear();
         find(locator).sendKeys(text);
     }
 
     protected void click(By locator){
+        scrollToElementJS(locator);
         find(locator).click();
     }
 

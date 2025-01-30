@@ -1,7 +1,6 @@
 package com.adabny.pages;
 
 import com.base.BasePage;
-import com.adabny.pages.ProductsPage;
 import org.openqa.selenium.By;
 
 import static util.WaitUtility.explicitWaitUntilVisible;
@@ -21,12 +20,12 @@ public class LoginPage extends BasePage {
     public void setPassword(String password){
         set(passwordField, password);
     }
-    public ProductsPage clickLoginButton(){
+    public HomePage clickLoginButton(){
         click(loginButton);
-        return new ProductsPage();
+        return new HomePage();
     }
 
-    public ProductsPage logIntoApplication(String email, String password){
+    public HomePage logIntoApplication(String email, String password){
         setEmail(email);
         setPassword(password);
         return clickLoginButton();

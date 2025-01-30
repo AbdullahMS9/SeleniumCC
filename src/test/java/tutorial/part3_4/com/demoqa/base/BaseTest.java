@@ -29,17 +29,18 @@ public class BaseTest {
     @BeforeClass
     public void setUp(){
 
-        // FOR SPEED PURPOSES:
+        /* FOR SPEED PURPOSES:
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--headless"); // Enables headless mode
             options.addArguments("--disable-gpu"); // Improves speed in headless mode
             options.addArguments("--disable-extensions");
             options.addArguments("--disable-popup-blocking");
             options.addArguments("--no-sandbox");
-            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--blink-settings=imagesEnabled=false");
+            */
 
 
-        driver = new ChromeDriver(options);
+        driver = new ChromeDriver(/*options*/);
         driver.manage().window().maximize();
         // Implicit wait setup:
         //   driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));

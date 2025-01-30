@@ -19,8 +19,8 @@ public class LoginTests extends BaseTest {
 
     public void testLoginFunctionality(){
         var loginPage = homePage.goToLoginPage();
-        var productsPage= loginPage.logIntoApplication("joe@email.com", "123456");
-        String actualValue = productsPage.getLogOutButtonText();
+        var homePage= loginPage.logIntoApplication("joe@email.com", "123456");
+        String actualValue = homePage.getLogOutButtonText();
         Assert.assertTrue(actualValue.equals("Logout"),
                 "\nExpected Val: Logout" +
                         "\nActual Value: "+ actualValue);
