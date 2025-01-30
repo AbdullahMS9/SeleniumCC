@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import static util.DropDownUtility.*;
 import static util.ActionsUtility.sendKeys;
+import static util.JavaScriptUtilities.clickJS;
 import static util.JavaScriptUtilities.scrollToElementJS;
 import static util.WaitUtility.fluentWaitUntilVisible;
 
@@ -28,9 +29,9 @@ public class ProductPage extends BasePage {
     private By rating = By.xpath("//*[@id=\"rating\"]");
     //private Select ratingSelect = new Select(find(rating));
     private By commentBox = By.tagName("textarea");
-    private By submitReviewButton = By.xpath("//*[@id=\"root\"]/main/div/div[2]/div/div/div[2]/form/button");
+    private By submitReviewButton = By.xpath("//main//form/button");
 
-    private By alertCard = By.xpath("//*[@id=\"1\"]/div[1]/div[2]");
+    private By alertCard = By.xpath("//div[@role='alert']/div[2]");
     //private By reviewSuccessAlert = By.xpath("//div[text()='Review successfully submitted']");
     //private By alreadyReviewedAlert = By.xpath("//div[text()='Product already reviewed']");
     //private String emptyCommentAlert = "Product validation failed: reviews.1.comment: Path `comment` is required";
@@ -79,10 +80,13 @@ public class ProductPage extends BasePage {
     }
 
     public void submitReview(){
-        click(submitReviewButton);
+        fluentWaitUntilVisible(9, submitReviewButton);
+        scrollToElementJS(submitReviewButton);
+        clickJS(submitReviewButton);
     }
 
     public String getAlertText(){
+        fluentWaitUntilVisible(9, alertCard);
         return find(alertCard).getText();
     }
 
